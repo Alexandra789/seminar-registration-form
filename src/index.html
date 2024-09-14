@@ -6,6 +6,46 @@
 		<title>Conference</title>
 	</head>
 	<body>
-	<button type="button" class="btn btn-primary">Button</button>
+		<div class="registration-page">
+			<div class="card">
+				<div class="card-body">
+					<form class="registration-form" id="seminar-registration-form">
+						<div class="registration-form__header mb-3">
+							<h1 class="registration-form__title mb-4">Оставить заявку на участие в семинаре</h1>
+							<p class="registration-form__description mb-1">Организаторы свяжутся с вами для подтверждения записи.</p>
+							<p class="registration-form__description">Участие в семинаре <span>бесплатное</span>.</p>
+						</div>
+						<div class="registration-form__field mb-3">
+							<label for="nameInput" class="form-label">Ваше имя:</label>
+							<input type="text" class="form-control" id="nameInput" placeholder="Иванов Алексей">
+							<p class="text-hint form-text" id="nameHint"></p>
+						</div>
+						<div class="registration-form__field mb-3">
+							<label for="exampleInput" class="form-label">Контактный email:</label>
+							<input type="email" class="form-control" id="exampleInput" placeholder="example@mail.com">
+							<p class="text-hint form-text" id="emailHint"></p>
+						</div>
+						<div class="registration-form__field mb-3">
+							<label for="seminarSelect" class="form-label">Интересующий семинар:</label>
+							<select class="form-select" id="seminarSelect">
+								<option selected>Выбрать</option>
+								<option value="1">Мобильная разработка: создание приложений для Android и iOS</option>
+								<option value="2">Введение в Python: простой путь к сложным задачам</option>
+								<option value="3">Создание веб-приложений с использованием React и Node.js</option>
+							</select>
+							<p class="text-hint form-text" id="seminarHint"></p>
+						</div>
+						<div class="registration-form__footer form-footer">
+							<p class="footer__text mb-2">Все поля обязательны для заполнения.</p>
+							<div class="d-flex gap-4 justify-content-between">
+								<p class="footer__text">Отправляя заявку, вы соглашаетесь с договором публичной оферты и политикой
+									обработки данных.</p>
+								<button type="submit" class="flex-grow-1 flex-shrink-1 w-auto btn btn-primary">Отправить</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
