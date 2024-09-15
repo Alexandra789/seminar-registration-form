@@ -44,7 +44,7 @@ function submitForm(seminarTitle, nameInput) {
 function createFormData(seminarTitle, nameInput) {
 	return {
 		subject: "Запись на семинар",
-		message: `Уважаемый ${nameInput}, Ваша заявка на семинар "${seminarTitle}" успешно одобрена.`,
+		message: `Уважаемый/ая ${nameInput}, Ваша заявка на семинар "${seminarTitle}" успешно одобрена.`,
 		apikey: '16de15e2-f9ba-4970-a708-e01672e01a0c',
 	};
 }
