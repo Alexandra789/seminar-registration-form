@@ -8,11 +8,11 @@
 
 html, body {
 	height: 100%;
+}
 
-	h1, h2, h3, h4, h5, h6, p, ul {
-		margin: 0;
-		padding: 0;
-	}
+h1, h2, h3, h4, h5, h6, p, ul {
+	margin: 0;
+	padding: 0;
 }
 
 body {
@@ -44,4 +44,69 @@ input:-webkit-autofill:focus {
 	-webkit-text-fill-color: $black;
 	background-color: $white !important;
 	transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (max-width: 1200px) {
+	h1 {
+		font-size: 2.2rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+	}
+
+	p {
+		font-size: 0.9rem;
+	}
+}
+
+@media (max-width: 992px) {
+	h1 {
+		font-size: 2rem;
+	}
+
+	h2 {
+		font-size: 1.6rem;
+	}
+
+	p {
+		font-size: 0.85rem;
+	}
+}
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 1.8rem;
+	}
+
+	.registration-page .card .registration-form .form-footer .wrapper.d-flex {
+		gap: 16px;
+		flex-wrap: wrap;
+
+		.w-50 {
+			width: 100%;
+		}
+	}
+
+	h2 {
+		font-size: 1.4rem;
+	}
+
+	p {
+		font-size: 0.8rem;
+	}
+}
+
+@media (max-width: 576px) {
+	h1 {
+		font-size: 1.6rem;
+	}
+
+	h2 {
+		font-size: 1.2rem;
+	}
+
+	p {
+		font-size: 0.75rem;
+	}
 }
