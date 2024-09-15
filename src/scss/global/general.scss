@@ -55,7 +55,7 @@ input:-webkit-autofill:focus {
 		font-size: 1.8rem;
 	}
 
-	p {
+	p, input.form-control, select.form-select {
 		font-size: 0.9rem;
 	}
 }
@@ -69,7 +69,7 @@ input:-webkit-autofill:focus {
 		font-size: 1.6rem;
 	}
 
-	p {
+	p, input.form-control, select.form-select {
 		font-size: 0.85rem;
 	}
 }
@@ -84,7 +84,7 @@ input:-webkit-autofill:focus {
 		flex-wrap: wrap;
 
 		.w-50 {
-			width: 100%;
+			width: 100% !important;
 		}
 	}
 
@@ -92,7 +92,7 @@ input:-webkit-autofill:focus {
 		font-size: 1.4rem;
 	}
 
-	p {
+	p, input.form-control, select.form-select {
 		font-size: 0.8rem;
 	}
 }
@@ -106,7 +106,7 @@ input:-webkit-autofill:focus {
 		font-size: 1.2rem;
 	}
 
-	p {
+	p, input.form-control, select.form-select {
 		font-size: 0.75rem;
 	}
 }
