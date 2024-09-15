@@ -1,36 +1,4 @@
-const form = document.querySelector('#seminar-registration-form');
 const hints = document.querySelectorAll('.text-hint');
-const toast = document.querySelector('.toast');
-
-form.addEventListener('submit', function (event) {
-	event.preventDefault();
-	clearHints();
-
-	const nameInput = getInputValue('#nameInput');
-	const emailInput = getInputValue('#emailInput');
-	const seminarSelect = getSelectValue('#seminarSelect');
-
-	const isValid = validateForm(nameInput, emailInput, seminarSelect);
-
-	if (isValid) {
-		showToast();
-		form.reset();
-	}
-});
-
-function clearHints() {
-	hints.forEach(hint => {
-		hint.innerText = '';
-	});
-}
-
-function getInputValue(selector) {
-	return document.querySelector(selector).value.trim();
-}
-
-function getSelectValue(selector) {
-	return document.querySelector(selector).value;
-}
 
 function validateForm(name, email, seminar) {
 	let isValid = true;
@@ -54,7 +22,6 @@ function validateForm(name, email, seminar) {
 		emailField.classList.add('error');
 		isValid = false;
 	} else if (!isValidEmail(email)) {
-		console.log('sad');
 		setHint('emailHint', 'Введите корректный email.');
 		emailField.classList.add('error');
 		isValid = false;
@@ -78,10 +45,26 @@ function setHint(hintId, message) {
 	document.getElementById(hintId).innerText = message;
 }
 
-function showToast() {
-	toast.classList.add('show');
-
-	setTimeout(() => {
-		toast.classList.remove('show');
-	}, 3000);
+function clearHints() {
+	hints.forEach(hint => {
+		hint.innerText = '';
+	});
 }
+
+function getInputValue(selector) {
+	return document.querySelector(selector).value.trim();
+}
+
+function getSelectValue(selector) {
+	if (selector === '#seminarSelect') {
+		return document.querySelector(selector).options[document.querySelector(selector).selectedIndex].text;
+	}
+	return document.querySelector(selector).value;
+}
+
+export {
+	validateForm,
+	clearHints,
+	getInputValue,
+	getSelectValue
+};

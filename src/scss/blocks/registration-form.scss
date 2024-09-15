@@ -1,5 +1,6 @@
 .registration-page {
 	height: 100%;
+	position: relative;
 
 	.card {
 		justify-content: center;
@@ -9,6 +10,11 @@
 		height: 100%;
 		padding: 16px;
 		position: relative;
+
+		&.blur-background {
+			filter: blur(5px);
+			transition: filter 0.3s ease;
+		}
 
 		&-body {
 			background-color: $white;
@@ -56,6 +62,17 @@
 				&__text {
 					font-size: 12px;
 					color: $dark_gray;
+					@media (max-width: 992px) {
+						font-size: 0.75rem;
+					}
+
+					@media (max-width: 768px) {
+						font-size: 0.70rem;
+					}
+
+					@media (max-width: 576px) {
+						font-size: 0.60rem;
+					}
 				}
 			}
 		}
@@ -66,12 +83,29 @@
 		right: 16px;
 		bottom: 16px;
 		visibility: hidden;
+		background: white;
+		@media (max-width: 576px) {
+			max-width: 288px;
+		}
 
 		&.show {
 			visibility: visible;
 			opacity: 1;
 			transition: all ease-in-out;
 			animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		}
+	}
+
+	.spinner {
+		position: absolute;
+		z-index: 10;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		img {
+			height: 60px;
+			width: 60px;
 		}
 	}
 }

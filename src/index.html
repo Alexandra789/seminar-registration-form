@@ -7,9 +7,14 @@
 	</head>
 	<body>
 		<div class="registration-page">
+			<div class="spinner d-none" id="spinner">
+				<img src="./assets/images/spinner.gif" alt="spinner image">
+			</div>
 			<div class="card">
 				<div class="card-body">
-					<form class="registration-form" id="seminar-registration-form" novalidate>
+					<form class="registration-form" id="seminar-registration-form" novalidate
+								action="https://api.web3forms.com/submit" method="POST">
+						<input type="hidden" name="access_key" value="16de15e2-f9ba-4970-a708-e01672e01a0c">
 						<div class="registration-form__header mb-3">
 							<h1 class="registration-form__title mb-4">Оставить заявку на участие в семинаре</h1>
 							<p class="registration-form__description mb-1">Организаторы свяжутся с вами для подтверждения записи.</p>
@@ -18,20 +23,20 @@
 						<div class="registration-form__body mb-4">
 							<div class="registration-form__field mb-3" id="nameField">
 								<label for="nameInput" class="form-label">Ваше имя:</label>
-								<input type="text" class="form-control" id="nameInput" placeholder="Введите ваше имя">
+								<input type="text" class="form-control" id="nameInput" placeholder="Введите ваше имя"/>
 								<p class="text-hint form-text" id="nameHint"></p>
 							</div>
 
 							<div class="registration-form__field mb-3" id="emailField">
 								<label for="emailInput" class="form-label">Контактный email:</label>
-								<input type="email" class="form-control" id="emailInput" placeholder="example@mail.com">
+								<input type="email" class="form-control" id="emailInput" placeholder="example@mail.com"/>
 								<p class="text-hint form-text" id="emailHint"></p>
 							</div>
 
 							<div class="registration-form__field" id="seminarField">
 								<label for="seminarSelect" class="form-label">Интересующий семинар:</label>
 								<select class="form-select" id="seminarSelect">
-									<option selected>Выбрать</option>
+									<option selected disabled>Выбрать</option>
 									<option value="1">Мобильная разработка: создание приложений для Android и iOS</option>
 									<option value="2">Введение в Python: простой путь к сложным задачам</option>
 									<option value="3">Создание веб-приложений с использованием React и Node.js</option>
@@ -43,8 +48,7 @@
 							<p class="form-footer__text mb-2">Все поля обязательны для заполнения.</p>
 							<div class="d-flex justify-content-between wrapper">
 								<p class="form-footer__text w-50">Отправляя заявку, вы соглашаетесь с договором публичной оферты и
-									политикой
-									обработки данных.</p>
+									политикой обработки данных.</p>
 								<button type="submit" class="flex-grow-1 flex-shrink-1 w-auto btn btn-primary">Отправить</button>
 							</div>
 						</div>

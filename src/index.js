@@ -1,3 +1,4 @@
 import './scss/style.scss';
 
-import './js/validate';
+import './js/validation';
+import './js/send-mail';
