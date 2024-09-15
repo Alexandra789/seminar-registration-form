@@ -9,41 +9,60 @@
 		<div class="registration-page">
 			<div class="card">
 				<div class="card-body">
-					<form class="registration-form" id="seminar-registration-form">
+					<form class="registration-form" id="seminar-registration-form" novalidate>
 						<div class="registration-form__header mb-3">
 							<h1 class="registration-form__title mb-4">Оставить заявку на участие в семинаре</h1>
 							<p class="registration-form__description mb-1">Организаторы свяжутся с вами для подтверждения записи.</p>
 							<p class="registration-form__description">Участие в семинаре <span>бесплатное</span>.</p>
 						</div>
-						<div class="registration-form__field mb-3">
-							<label for="nameInput" class="form-label">Ваше имя:</label>
-							<input type="text" class="form-control" id="nameInput" placeholder="Иванов Алексей">
-							<p class="text-hint form-text" id="nameHint"></p>
-						</div>
-						<div class="registration-form__field mb-3">
-							<label for="exampleInput" class="form-label">Контактный email:</label>
-							<input type="email" class="form-control" id="exampleInput" placeholder="example@mail.com">
-							<p class="text-hint form-text" id="emailHint"></p>
-						</div>
-						<div class="registration-form__field mb-3">
-							<label for="seminarSelect" class="form-label">Интересующий семинар:</label>
-							<select class="form-select" id="seminarSelect">
-								<option selected>Выбрать</option>
-								<option value="1">Мобильная разработка: создание приложений для Android и iOS</option>
-								<option value="2">Введение в Python: простой путь к сложным задачам</option>
-								<option value="3">Создание веб-приложений с использованием React и Node.js</option>
-							</select>
-							<p class="text-hint form-text" id="seminarHint"></p>
+						<div class="registration-form__body mb-4">
+							<div class="registration-form__field mb-3" id="nameField">
+								<label for="nameInput" class="form-label">Ваше имя:</label>
+								<input type="text" class="form-control" id="nameInput" placeholder="Введите ваше имя">
+								<p class="text-hint form-text" id="nameHint"></p>
+							</div>
+
+							<div class="registration-form__field mb-3" id="emailField">
+								<label for="emailInput" class="form-label">Контактный email:</label>
+								<input type="email" class="form-control" id="emailInput" placeholder="example@mail.com">
+								<p class="text-hint form-text" id="emailHint"></p>
+							</div>
+
+							<div class="registration-form__field" id="seminarField">
+								<label for="seminarSelect" class="form-label">Интересующий семинар:</label>
+								<select class="form-select" id="seminarSelect">
+									<option selected>Выбрать</option>
+									<option value="1">Мобильная разработка: создание приложений для Android и iOS</option>
+									<option value="2">Введение в Python: простой путь к сложным задачам</option>
+									<option value="3">Создание веб-приложений с использованием React и Node.js</option>
+								</select>
+								<p class="text-hint form-text" id="seminarHint"></p>
+							</div>
 						</div>
 						<div class="registration-form__footer form-footer">
-							<p class="footer__text mb-2">Все поля обязательны для заполнения.</p>
-							<div class="d-flex gap-4 justify-content-between">
-								<p class="footer__text">Отправляя заявку, вы соглашаетесь с договором публичной оферты и политикой
+							<p class="form-footer__text mb-2">Все поля обязательны для заполнения.</p>
+							<div class="d-flex justify-content-between wrapper">
+								<p class="form-footer__text w-50">Отправляя заявку, вы соглашаетесь с договором публичной оферты и
+									политикой
 									обработки данных.</p>
 								<button type="submit" class="flex-grow-1 flex-shrink-1 w-auto btn btn-primary">Отправить</button>
 							</div>
 						</div>
 					</form>
+				</div>
+			</div>
+			<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="toast-header">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2 bi bi-bell"
+							 viewBox="0 0 16 16">
+						<path
+							d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
+					</svg>
+					<strong class="me-auto">Уведомление</strong>
+				</div>
+				<div class="toast-body">
+					<p>Ваша заявка успешно отправлена и находится в обработке.
+						Ожидайте email с подтверждением бронирования.</p>
 				</div>
 			</div>
 		</div>
