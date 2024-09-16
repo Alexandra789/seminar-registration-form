@@ -1,5 +1,10 @@
 const form = document.querySelector('#seminar-registration-form');
-const toast = document.querySelector('.toast');
+const alert = document.querySelector('.alert');
+const alertMessage = document.querySelector('#alert-message');
+
+emailjs.init({
+	publicKey: "_claB5_Eswk1M1r7Q",
+});
 
 form.addEventListener('submit', handleFormSubmit);
 
@@ -12,50 +17,28 @@ function handleFormSubmit(event) {
 	const seminarSelect = getSelectValue('#seminarSelect');
 
 	if (validateForm(nameInput, emailInput, seminarSelect)) {
-		submitForm(seminarSelect, nameInput);
+		submitForm(seminarSelect, nameInput, emailInput);
 	}
 }
 
-function submitForm(seminarTitle, nameInput) {
+function submitForm(seminarTitle, nameInput, emailInput) {
 	showSpinner();
-	const formData = createFormData(seminarTitle, nameInput);
-	const apiKey = '16de15e2-f9ba-4970-a708-e01672e01a0c';
-
-	fetch('https://api.web3forms.com/submit', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			'Authorization': apiKey,
-		},
-		body: JSON.stringify(formData)
-	})
-		.then(handleResponse)
+	emailjs.send("service_fw6jo1f", "template_tkuyvnr",
+		{
+			to_name: nameInput,
+			to_seminar: seminarTitle,
+			to_email: emailInput,
+		})
 		.then(() => {
-			showToast();
+			showAlert(true);
 			hideSpinner();
 			form.reset();
 		})
-		.catch((error) => {
+		.catch(error => {
 			console.error('Ошибка:', error);
 			hideSpinner();
+			showAlert(false);
 		});
-}
-
-function createFormData(seminarTitle, nameInput) {
-	return {
-		subject: "Запись на семинар",
-		message: `Уважаемый/ая ${nameInput}, Ваша заявка на семинар "${seminarTitle}" успешно одобрена.`,
-		apikey: '16de15e2-f9ba-4970-a708-e01672e01a0c',
-	};
-}
-
-function handleResponse(response) {
-	if (!response.ok) {
-		return response.json().then(err => {
-			throw new Error(err.message || 'Ошибка при отправке формы');
-		});
-	}
-	return response.json();
 }
 
 function showSpinner() {
@@ -68,11 +51,16 @@ function hideSpinner() {
 	document.querySelector('.card').classList.remove('blur-background');
 }
 
-function showToast() {
-	toast.classList.add('show');
-
+function showAlert(sending) {
+	let message = sending ?
+		`Ваша заявка успешно отправлена и находится в обработке.
+	Ожидайте email с подтверждением бронирования.` : `Не удалось отправить заявку.`;
+	let className = sending ? 'alert-success' : 'alert-danger';
+	alert.classList.add('show');
+	alert.classList.add(className);
+	alertMessage.innerText = message;
 	setTimeout(() => {
-		toast.classList.remove('show');
+		alert.classList.remove('show');
 	}, 3000);
 }
 

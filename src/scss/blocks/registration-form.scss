@@ -78,12 +78,11 @@
 		}
 	}
 
-	.toast {
+	.alert {
 		position: absolute;
 		right: 16px;
 		bottom: 16px;
 		visibility: hidden;
-		background: white;
 		@media (max-width: 576px) {
 			max-width: 288px;
 		}
